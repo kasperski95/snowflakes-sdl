@@ -1,6 +1,6 @@
 #include <iostream>
 #include <assert.h>
-#include "Math.h"
+#include "../Math.h"
 
 using namespace math;
 
