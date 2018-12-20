@@ -1,72 +1,26 @@
-﻿#ifdef __cplusplus
-    #include <cstdlib>
-#else
-    #include <stdlib.h>
-#endif
-
-#ifdef __APPLE__
+﻿#ifdef __APPLE__
     #include <SDL/SDL.h>
 #else
     #include <SDL.h>
 #endif
-
-#define pi 3.14159265359
-
-#include <ctime>
+#include <cstdlib>
 #include <iostream>
-
-
-
-
-#include "snowflakes/Math.h"
-#include "snowflakes/core/Structures.h"
-#include "snowflakes/Core.h"
-#include "snowflakes/Objects.h"
-
+#include "engine/Math.h"
+#include "engine/core/Structures.h"
+#include "engine/Core.h"
+#include "engine/Objects.h"
 using namespace std;
 
-SDL_Surface *screen;
-int width = 800;
-int height = 600;
-int fps = 30;
-
-char const* tytul = "Snowflakes by Arkadiusz Kasprzyk";
+int WIDTH = 800;
+int HEIGHT = 600;
+int FPS = 30;
+char const* TITLE = "Snowflakes by Arkadiusz Kasprzyk";
 
 
-
-
-namespace io{
-    Point mousePosition() {
-        int x, y;
-        SDL_GetMouseState(&x, &y);
-        return Point(x, y);
-    }
-}
-
-
-void Funkcja1() {
-
-    //s1.draw();
-}
-
-
-void Funkcja2() {
-
-    SDL_Flip(screen);
-}
-
-
-void Funkcja3() {
-
-    SDL_Flip(screen);
-}
-
-
-void Funkcja4() {
-
-    SDL_Flip(screen);
-}
-
+void Funkcja1() {}
+void Funkcja2() {}
+void Funkcja3() {}
+void Funkcja4() {}
 
 int main ( int argc, char** argv ) {
     // console output
@@ -83,16 +37,16 @@ int main ( int argc, char** argv ) {
     atexit(SDL_Quit);
 
     // create a new window
-    screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+    SDL_Surface* screen = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
     if ( !screen ) {
         printf("Unable to set video: %s\n", SDL_GetError());
         return 1;
     }
 
     // initialize student's engine
-    gfx::Engine engine(screen, width, height, fps);
+    gfx::Engine engine(screen, WIDTH, HEIGHT, FPS);
 
-    SDL_WM_SetCaption( tytul , NULL );
+    SDL_WM_SetCaption( TITLE , NULL );
 
     // program main loop
     bool done = false;

@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="GKiM-Lab2" />
+		<Option title="snowflakes" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -42,8 +42,23 @@
 			<Add library="dxguid" />
 			<Add directory="SDL-1.2.14/lib" />
 		</Linker>
-		<Unit filename="cb.bmp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="snowflakes/Core.h" />
+		<Unit filename="snowflakes/Math.h" />
+		<Unit filename="snowflakes/Objects.h" />
+		<Unit filename="snowflakes/core/Canvas.cpp" />
+		<Unit filename="snowflakes/core/Engine.cpp" />
+		<Unit filename="snowflakes/core/Functions.cpp" />
+		<Unit filename="snowflakes/core/Structures.h" />
+		<Unit filename="snowflakes/core/structures/Color.cpp" />
+		<Unit filename="snowflakes/core/structures/Point.cpp" />
+		<Unit filename="snowflakes/math/Functions.cpp" />
+		<Unit filename="snowflakes/math/Matrix.cpp" />
+		<Unit filename="snowflakes/objects/Actor.cpp" />
+		<Unit filename="snowflakes/objects/Edge.cpp" />
+		<Unit filename="snowflakes/objects/Line.cpp" />
+		<Unit filename="snowflakes/objects/Primitive.cpp" />
+		<Unit filename="snowflakes/objects/Shape.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
