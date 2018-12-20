@@ -8,6 +8,7 @@
 #include "engine/Math.h"
 #include "engine/core/Structures.h"
 #include "engine/Core.h"
+#include "engine/Engine.h"
 #include "engine/Objects.h"
 using namespace std;
 
@@ -16,6 +17,20 @@ int HEIGHT = 600;
 int FPS = 30;
 char const* TITLE = "Snowflakes by Arkadiusz Kasprzyk";
 
+void init(Engine& engine) {
+    Shape* s1 = new Shape(engine.canvas(), {
+        Point(50,50),
+        Point(50,-50),
+        Point(-50,-50),
+        Point(-50,50),
+        Point(50,50)
+    }, 1, Color(255,0,0));
+
+    s1->motionBlur(true);
+    s1->location(50, 50);
+
+    engine.addTickingPrimitive(s1);
+}
 
 void Funkcja1() {}
 void Funkcja2() {}
@@ -45,6 +60,7 @@ int main ( int argc, char** argv ) {
 
     // initialize student's engine
     gfx::Engine engine(screen, WIDTH, HEIGHT, FPS);
+    init(engine);
 
     SDL_WM_SetCaption( TITLE , NULL );
 

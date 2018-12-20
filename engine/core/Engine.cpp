@@ -1,4 +1,5 @@
-#include "../Core.h"
+#include "../Engine.h"
+#include <iostream>
 #include <chrono>
 
 using namespace gfx;
@@ -8,9 +9,11 @@ Engine::Engine(SDL_Surface* screenToSet, int widthToSet, int heightToSet, int fp
     SDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, -1);
 
     _fps = fpsToSet;
+    _exposureTime = 1000.f / _fps;
 
     _canvas = new Canvas(screenToSet, widthToSet, heightToSet);
-    // init primitives
+
+    // call init primitives
 }
 
 
@@ -20,13 +23,21 @@ void Engine::tick() {
     _physxDeltaTime = ms - _physxTimeStamp;
     _physxTimeStamp = ms;
     _canvas->factor((float)_physxDeltaTime /_exposureTime);
+
     if (ms - _gfxTimeStamp > _exposureTime) {
         _canvas->update();
         _gfxTimeStamp = ms;
         _gfxDeltaTime = ms - _gfxTimeStamp;
     }
 
-    //tick primitives
+    for (int i = 0; i < _primitives.size(); ++i) {
+        _primitives[i]->draw();
+    }
 }
 
 Canvas* Engine::canvas() {return _canvas;}
+
+
+void Engine::addTickingPrimitive(Primitive* primitive) {
+    _primitives.push_back(primitive);
+}

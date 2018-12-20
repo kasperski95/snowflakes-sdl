@@ -10,7 +10,6 @@
 #include "Math.h"
 #include "core/Structures.h"
 
-
 namespace gfx {
     SDL_Color getPixel (int x, int y, int width, int height, SDL_Surface* screen);
     void setPixel(int x, int y, Uint8 R, Uint8 G, Uint8 B, SDL_Surface* screen);
@@ -38,21 +37,5 @@ namespace gfx {
         int _width;
         int _height;
         float _factor;
-    };
-
-
-    class Engine {
-    public:
-        Engine(SDL_Surface* screen, int width, int height, int fps);
-        void tick();
-        Canvas* canvas();
-    private:
-        int _fps;
-        class Canvas* _canvas;
-        double _exposureTime;
-        unsigned long long _physxDeltaTime;
-        unsigned long long _physxTimeStamp;
-        unsigned long long _gfxDeltaTime;
-        unsigned long long _gfxTimeStamp;
     };
 }

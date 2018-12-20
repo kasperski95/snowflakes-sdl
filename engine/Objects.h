@@ -21,6 +21,8 @@ Color DEFAULT_COLOR = WHITE;
 */
 
 
+using namespace gfx;
+
 class Edge {
 public:
     Edge(Point p1, Point p2);
@@ -66,11 +68,11 @@ class Actor {
 
 class Primitive : public Actor {
 public:
-    Primitive(gfx::Canvas* canvasToSet, int thicknessToSet, Color borderColorToSet);
+    Primitive(Canvas* canvasToSet, int thicknessToSet, Color borderColorToSet);
     virtual void draw() = 0;
 
 protected:
-    gfx::Canvas* _canvas;
+    Canvas* _canvas;
     Color _borderColor;
     int _thickness;
 };
@@ -79,8 +81,8 @@ protected:
 
 class Line : public Primitive {
 public:
-    Line (gfx::Canvas* canvasToSet, Point p1, Point p2, int thicknessToSet, Color borderColorToSet);
-    Line (gfx::Canvas* canvasToSet, int x1, int y1, int x2, int y2, int thicknessToSet, Color borderColorToSet);
+    Line (Canvas* canvasToSet, Point p1, Point p2, int thicknessToSet, Color borderColorToSet);
+    Line (Canvas* canvasToSet, int x1, int y1, int x2, int y2, int thicknessToSet, Color borderColorToSet);
     void draw() override;
     Point endPoint();
 
