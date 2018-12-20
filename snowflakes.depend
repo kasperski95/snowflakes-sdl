@@ -737,16 +737,19 @@
 	"begin_code.h"
 	"close_code.h"
 
-1545253951 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\main.cpp
+1545325002 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
 	<SDL.h>
 	<cmath>
-	<time.h>
+	<ctime>
 	<iostream>
 	<assert.h>
 	<vector>
+	<chrono>
+	<algorithm>
+	<thread>
 
 1255800450 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\sdl-1.2.14\include\sdl\sdl.h
 	"SDL_main.h"

@@ -37,46 +37,16 @@ void Funkcja1();
 
 namespace gfx{
 
-    // TODO: Before labs
-    // git
-    // separate classes
-        //TODO: REFACTOR
-        // - create class Engine
-        // - Actor Tick
-        // - math from gfx
-    // - basic interpolation
-    // - animation
-    // - bitmaps (support)
-    // ~ line (all algorithms) @@@@@
-    // - elipse (all algorithms) @@@@@
-    // - circle (all algorithms) @@@@@
-    // - line thickness @@@@@
-    // - alpha
-    // - rotate & scale
-    // - brush
-
-    // TODO: More
-    // - viewport
-    // - supersampling
-    // - bezier curves
-    // - n-point interpolation
-    // - spring interpolation
-    // - all affine transformation
-
-    // TODO: Advanced stuff
-    // - 3D...
-    // - physics...
-
 
 
 
     const int FPS = 30;
     class Canvas* canvas = nullptr;
     const double exposureTime = 1000.f / FPS;
-    int physicsDeltaTime = 0;
-    int physicsTimeStamp = 0;
-    int deltaTime = 0;
-    int timeStamp = 0;
+    unsigned long long physicsDeltaTime = 0;
+    unsigned long long physicsTimeStamp = 0;
+    unsigned long long deltaTime = 0;
+    unsigned long long timeStamp = 0;
 
     int clamp(int x, int min, int max) {
         if (x < min)
@@ -650,13 +620,12 @@ namespace gfx{
     void tick() {
         using namespace std::chrono;
 
-        int ms = duration_cast<milliseconds>(
+        unsigned long long ms = duration_cast<milliseconds>(
             system_clock::now().time_since_epoch()
         ).count() % 2000;
 
         //Primitives[0]->location(io::mousePosition().x(), io::mousePosition().y());
         Primitives[0]->location(100, sin(ms/1000.f * pi) * 200 + 300);
-
         Primitives[0]->draw();
     }
 
@@ -684,7 +653,6 @@ namespace gfx{
         Primitives.push_back(s1);
         Primitives[0]->location(50, 50);
         Primitives[0]->draw();
-        canvas->update();
     }
 
 
@@ -694,13 +662,11 @@ namespace gfx{
 
     void _tick() {
         using namespace std::chrono;
-
-        int ms = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+        unsigned long long ms = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
 
         physicsDeltaTime = ms - physicsTimeStamp;
         physicsTimeStamp = ms;
         tick();
-
         if (ms - timeStamp > exposureTime) {
             canvas->update();
             timeStamp = ms;
