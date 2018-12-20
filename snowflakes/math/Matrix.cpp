@@ -2,6 +2,7 @@
 #include <assert.h>
 #include "Math.h"
 
+using namespace math;
 
 Matrix::Matrix(int n, int m) {
     _nRows=m;

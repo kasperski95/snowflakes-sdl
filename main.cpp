@@ -27,7 +27,7 @@ SDL_Surface *screen;
 int width = 800;
 int height = 600;
 
-char const* tytul = "GKiM - Lab 2 - Kasprzyk Arkadiusz";
+char const* tytul = "Snowflakes by Arkadiusz Kasprzyk";
 
 void setPixel(int x, int y, Uint8 R, Uint8 G, Uint8 B);
 SDL_Color getPixel (int x, int y);
@@ -38,10 +38,6 @@ void Funkcja1();
 //========================================================================
 
 namespace gfx{
-
-
-
-
     const int FPS = 30;
     class Canvas* canvas = nullptr;
     const double exposureTime = 1000.f / FPS;
@@ -50,19 +46,9 @@ namespace gfx{
     unsigned long long deltaTime = 0;
     unsigned long long timeStamp = 0;
 
-    int clamp(int x, int min, int max) {
-        if (x < min)
-            return min;
-        if (x > max)
-            return max;
-        return x;
-    }
 
 
-
-
-
-    class Point : public Matrix {
+    class Point : public math::Matrix {
     public:
         Point (Matrix matrix)
             : Point(matrix.get(0, 0), matrix.get(1, 0)) {}
@@ -199,7 +185,7 @@ namespace gfx{
 
         int height() { return _height; }
 
-        void px(Matrix m, Color color, bool motionBlur=false) {
+        void px(math::Matrix m, Color color, bool motionBlur=false) {
             this->px(m.get(0,0), m.get(1,0), color.r, color.g, color.b, motionBlur);
         }
 
@@ -216,16 +202,16 @@ namespace gfx{
             //assert (y >= 0);
             //assert (x < _width);
             //assert (y < _height);
-            x = clamp(x, 0, _width);
-            y = clamp(y, 0, _height);
+            x = math::clamp(x, 0, _width);
+            y = math::clamp(y, 0, _height);
 
 
             if (motionBlur) {
                 float factor = (float)physicsDeltaTime / exposureTime;
                 Color pxCol = px(x, y);
-                setPixel(x, y, clamp(pxCol.r + r * factor, 0, 255), clamp(pxCol.g + g * factor, 0, 255), clamp(pxCol.b + b * factor, 0, 255));
+                setPixel(x, y, math::clamp(pxCol.r + r * factor, 0, 255), math::clamp(pxCol.g + g * factor, 0, 255), math::clamp(pxCol.b + b * factor, 0, 255));
             } else {
-                setPixel(x, y, clamp(r, 0, 255), clamp(g, 0, 255), clamp(b, 0, 255));
+                setPixel(x, y, math::clamp(r, 0, 255), math::clamp(g, 0, 255), math::clamp(b, 0, 255));
             }
         }
 
@@ -268,8 +254,8 @@ namespace gfx{
             return Point(_transformationMatrix.get(0,2), _transformationMatrix.get(1,2));
         }
 
-        Matrix transformationMatrix() {
-            Matrix tmpTransformationMatrix = _transformationMatrix;
+        math::Matrix transformationMatrix() {
+            math::Matrix tmpTransformationMatrix = _transformationMatrix;
             if (_parent) {
                 tmpTransformationMatrix = _transformationMatrix * _parent->transformationMatrix();
             }
@@ -289,11 +275,11 @@ namespace gfx{
         }
 
     protected:
-        Matrix _transformationMatrix;
+        math::Matrix _transformationMatrix;
         class Actor* _parent;
         bool _motionBlur;
 
-        void _translate(Matrix m) {
+        void _translate(math::Matrix m) {
             this->_translate(m.get(0,0), m.get(1,0));
         }
 
@@ -363,8 +349,7 @@ namespace gfx{
         }
 
         void draw() override {
-
-            Matrix tmpTransformationMatrix = _transformationMatrix;
+            math::Matrix tmpTransformationMatrix = _transformationMatrix;
 
             if (_parent) {
                 tmpTransformationMatrix = _transformationMatrix * _parent->transformationMatrix();
@@ -390,7 +375,7 @@ namespace gfx{
         }
 
         Point endPoint() {
-            Matrix tmp = _endPoint * transformationMatrix();
+            math::Matrix tmp = _endPoint * transformationMatrix();
             return Point(tmp.get(0, 0), tmp.get(1, 0));
         }
 
