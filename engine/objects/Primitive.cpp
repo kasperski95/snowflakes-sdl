@@ -4,20 +4,21 @@ Primitive::Primitive(gfx::Canvas* canvasToSet, int thicknessToSet, Color borderC
     _canvas = canvasToSet;
     _thickness = thicknessToSet;
     _borderColor = borderColorToSet;
-    _mX = 0.f;
-    _mY = 0.f;
+    _momentum = Point();
 }
 
 
-void Primitive::move(Point p) { move(p.x(), p.y()); }
-void Primitive::move(int x, int y) {
-    _translate(x + location().x() + _mX, y + location().y() + _mY);
+void Primitive::move(float dt, Point p) { move(p.x(), p.y()); }
+void Primitive::move(float dt, float x, float y) {
+    //std::cout << dt << std::endl;
+    //location().print();
+    location(location().x() + (x + _momentum.x()) * dt, location().y() + (y + _momentum.y()) * dt);
+    _translate(location().x(), location().y());
 }
 
 // GETTERS & SETTESRS
-float Primitive::momentumX() {return _mX;}
-float Primitive::momentumY() {return _mY;}
+Point Primitive::momentum() {return _momentum;}
 void Primitive::momentum(float x, float y) {
-    _mX = x;
-    _mY = y;
+    _momentum.x(x);
+    _momentum.y(y);
 }

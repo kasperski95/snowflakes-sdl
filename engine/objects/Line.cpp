@@ -35,7 +35,7 @@ Line::Line (gfx::Canvas* canvasToSet, int x1, int y1, int x2, int y2, int thickn
 }
 
 void Line::draw() {
-    math::Matrix<double> tmpTransformationMatrix = _transformationMatrix;
+    math::Matrix<float> tmpTransformationMatrix = _transformationMatrix;
 
     if (_parent) {
         tmpTransformationMatrix = _transformationMatrix * _parent->transformationMatrix();
@@ -61,7 +61,7 @@ void Line::draw() {
 }
 
 Point Line::endPoint() {
-    math::Matrix<double> tmp = _endPoint * transformationMatrix();
+    math::Matrix<float> tmp = _endPoint * transformationMatrix();
     return Point(tmp.get(0, 0), tmp.get(1, 0));
 }
 

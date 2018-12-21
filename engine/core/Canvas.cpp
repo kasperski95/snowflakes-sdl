@@ -1,4 +1,5 @@
 #include "../Core.h"
+#include <cmath>
 
 using namespace gfx;
 
@@ -20,12 +21,12 @@ void Canvas::update() {
 int Canvas::width() { return _width; }
 int Canvas::height() { return _height; }
 
-Color Canvas::px(int x, int y) {
-    return Color(getPixel(x, y, _width, _height, _screen).r, getPixel(x, y, _width, _height, _screen).g, getPixel(x, y, _width, _height, _screen).b);
+Color Canvas::px(float x, float y) {
+    return Color(getPixel((int)round(x), (int)round(y), _width, _height, _screen).r, getPixel(x, y, _width, _height, _screen).g, getPixel(x, y, _width, _height, _screen).b);
 }
 
 
-void Canvas::px(math::Matrix<double> m, Color color, bool motionBlur) {
+void Canvas::px(math::Matrix<float> m, Color color, bool motionBlur) {
     this->px(m.get(0,0), m.get(1,0), color.r, color.g, color.b, motionBlur);
 }
 
@@ -33,13 +34,13 @@ void Canvas::px(Point p, Color color) {
     this->px(p.x(), p.y(), color.r, color.g, color.b);
 }
 
-void Canvas::px(int x, int y, Color color, bool motionBlur) {
+void Canvas::px(float x, float y, Color color, bool motionBlur) {
     this->px(x, y, color.r, color.g, color.b, motionBlur);
 }
 
-void Canvas::px(int x, int y, Uint8 r, Uint8 g, Uint8 b, bool motionBlur) {
-    x = math::clamp(x, 0, _width);
-    y = math::clamp(y, 0, _height);
+void Canvas::px(float x, float y, Uint8 r, Uint8 g, Uint8 b, bool motionBlur) {
+    x = math::clamp((int)round(x), 0, _width);
+    y = math::clamp((int)round(y), 0, _height);
 
     if (motionBlur) {
         Color pxCol = px(x, y);

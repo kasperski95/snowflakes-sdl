@@ -1,6 +1,6 @@
 #include "../core/Structures.h"
 #include "../Objects.h"
-
+#include <cmath>
 
 Edge::Edge(Point p1, Point p2) {
     _p1 = p1;
@@ -17,7 +17,7 @@ bool Edge::bVertical() { return _bVertical; }
 
 // PRIVATE
 void Edge::_calculateSlope() {
-    if (_p2.x() == _p1.x()) {
+    if ((int)round(_p2.x()) == (int)round(_p1.x())) {
         _a = 0;
         _b = 0;
         _bVertical = true;

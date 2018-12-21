@@ -10,7 +10,7 @@ void Actor::parent(Actor* parentToSet) {
 }
 
 
-void Actor::location(int x, int y) {
+void Actor::location(float x, float y) {
     _translate(x, y);
 }
 
@@ -20,8 +20,8 @@ Point Actor::location() {
 }
 
 
-math::Matrix<double> Actor::transformationMatrix() {
-    math::Matrix<double> tmpTransformationMatrix = _transformationMatrix;
+math::Matrix<float> Actor::transformationMatrix() {
+    math::Matrix<float> tmpTransformationMatrix = _transformationMatrix;
     if (_parent) {
         tmpTransformationMatrix = _transformationMatrix * _parent->transformationMatrix();
     }
@@ -43,12 +43,12 @@ bool Actor::motionBlur() {
 }
 
 
-void Actor::_translate(math::Matrix<double> m) {
+void Actor::_translate(math::Matrix<float> m) {
     this->_translate(m.get(0,0), m.get(1,0));
 }
 
 
-void Actor::_translate(int x, int y) {
+void Actor::_translate(float x, float y) {
     _transformationMatrix.set(0, 2, x);
     _transformationMatrix.set(1, 2, y);
 }

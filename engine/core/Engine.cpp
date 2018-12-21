@@ -12,8 +12,6 @@ Engine::Engine(SDL_Surface* screenToSet, int widthToSet, int heightToSet, int fp
     _exposureTime = 1000.f / _fps;
 
     _canvas = new Canvas(screenToSet, widthToSet, heightToSet);
-
-    // call init primitives
 }
 
 
@@ -22,17 +20,19 @@ void Engine::tick() {
     unsigned long long ms = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
     _physxDeltaTime = ms - _physxTimeStamp;
     _physxTimeStamp = ms;
-    _canvas->factor((float)_physxDeltaTime /_exposureTime);
 
-    if (ms - _gfxTimeStamp > _exposureTime) {
-        _canvas->update();
-        _gfxTimeStamp = ms;
-        _gfxDeltaTime = ms - _gfxTimeStamp;
-    }
+    if (_physxDeltaTime < 1000) {
+        _canvas->factor((float)_physxDeltaTime /_exposureTime);
+        if (ms - _gfxTimeStamp > _exposureTime) {
+            _canvas->update();
+            _gfxTimeStamp = ms;
+            _gfxDeltaTime = ms - _gfxTimeStamp;
+        }
 
-    for (int i = 0; i < _primitives.size(); ++i) {
-        _primitives[i]->move();
-        _primitives[i]->draw();
+        for (int i = 0; i < _primitives.size(); ++i) {
+            _primitives[i]->move(_physxDeltaTime / 1000.f);
+            _primitives[i]->draw();
+        }
     }
 }
 

@@ -4,7 +4,7 @@
 Point::Point(Matrix matrix)
     : Point(matrix.get(0, 0), matrix.get(1, 0)) {}
 
-Point::Point(int xToSet, int yToSet)
+Point::Point(float xToSet, float yToSet)
     : Matrix(3,1)
 {
     _matrix[0][0] = xToSet;
@@ -14,17 +14,17 @@ Point::Point(int xToSet, int yToSet)
 
 
 void Point::swap() {
-    int tmp = _matrix[0][0];
+    float tmp = _matrix[0][0];
     _matrix[0][0] = _matrix[1][0];
     _matrix[1][0] = tmp;
 }
 
 
 // GETTERS & SETTERS
-void Point::x(int xToSet) { _matrix[0][0] = xToSet; }
-void Point::y(int yToSet) { _matrix[1][0] = yToSet; }
-int Point::x() const { return _matrix[0][0]; }
-int Point::y() const { return _matrix[1][0]; }
+void Point::x(float xToSet) { _matrix[0][0] = xToSet; }
+void Point::y(float yToSet) { _matrix[1][0] = yToSet; }
+float Point::x() const { return _matrix[0][0]; }
+float Point::y() const { return _matrix[1][0]; }
 
 
 // OPERATORS

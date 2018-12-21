@@ -22,7 +22,8 @@ void Shape::draw() {
 }
 
 void Shape::fill(Color color) {
-    _fillScanLine(color);
+    // FIXME: fatal crash after changing to floating point number
+    //_fillScanLine(color);
 }
 
 

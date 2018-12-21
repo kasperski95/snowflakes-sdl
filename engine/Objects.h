@@ -50,18 +50,18 @@ class Actor {
 
         // GETTERS & SETTERS
         Point location();
-        math::Matrix<double> transformationMatrix();
+        math::Matrix<float> transformationMatrix();
         bool motionBlur();
         void parent(Actor* parentToSet);
-        void location(int x, int y);
+        void location(float x, float y);
         void motionBlur(bool value);
 
     protected:
-        math::Matrix<double> _transformationMatrix;
+        math::Matrix<float> _transformationMatrix;
         class Actor* _parent;
         bool _motionBlur;
-        void _translate(math::Matrix<double> m);
-        void _translate(int x, int y);
+        void _translate(math::Matrix<float> m);
+        void _translate(float x, float y);
     };
 
 
@@ -70,18 +70,16 @@ class Primitive : public Actor {
 public:
     Primitive(Canvas* canvasToSet, int thicknessToSet, Color borderColorToSet);
     virtual void draw() = 0;
-    void move(Point p);
-    void move(int x=0, int y=0);
+    void move(float dt, Point p);
+    void move(float dt, float x=0, float y=0);
     void momentum(float x, float y);
-    float momentumX();
-    float momentumY();
+    Point momentum();
 
 protected:
     Canvas* _canvas;
     Color _borderColor;
     int _thickness;
-    float _mX;
-    float _mY;
+    Point _momentum;
 };
 
 

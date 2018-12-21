@@ -9,18 +9,18 @@
 #endif
 
 
-class Point : public math::Matrix<double> {
+class Point : public math::Matrix<float> {
 public:
     Point(Matrix matrix);
-    Point(int x=0, int y=0);
+    Point(float x=0, float y=0);
 
     void swap();
 
     // GETTERS & SETTERS
-    int x() const;
-    int y() const;
-    void x(int xToSet);
-    void y(int yToSet);
+    float x() const;
+    float y() const;
+    void x(float xToSet);
+    void y(float yToSet);
 
     // OPERATORS
     Point& operator-=(const Point &rhs);
