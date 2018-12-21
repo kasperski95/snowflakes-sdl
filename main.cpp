@@ -10,6 +10,9 @@
 #include "engine/Core.h"
 #include "engine/Engine.h"
 #include "engine/Objects.h"
+#include "snowflakes/snowflakes.h"
+
+
 using namespace std;
 
 int WIDTH = 800;
@@ -18,25 +21,21 @@ int FPS = 30;
 char const* TITLE = "Snowflakes by Arkadiusz Kasprzyk";
 
 void createObjects(Engine& engine) {
-    Shape* s1 = new Shape(engine.canvas(), {
-        Point(50,50),
-        Point(50,-50),
-        Point(-50,-50),
-        Point(-50,50),
-        Point(50,50)
-    }, 1, Color(255,255,0));
-
-    s1->motionBlur(true);
-    s1->location(50.5, 50.5);
-    s1->momentum(100,100);
-
-    engine.addTickingPrimitive(s1);
+    engine.addTickingPrimitive(new SnowflakeGenerator(engine.canvas(), 20));
 }
 
+// increase wind
 void Funkcja1() {}
+
+// decrease wind
 void Funkcja2() {}
+
+// more snow
 void Funkcja3() {}
+
+// less snow
 void Funkcja4() {}
+
 
 int main ( int argc, char** argv ) {
     try {

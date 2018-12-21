@@ -34,17 +34,22 @@ void Canvas::px(Point p, Color color) {
     this->px(p.x(), p.y(), color.r, color.g, color.b);
 }
 
-void Canvas::px(float x, float y, Color color, bool motionBlur) {
-    this->px(x, y, color.r, color.g, color.b, motionBlur);
+void Canvas::px(float x, float y, Color color, bool motionBlur, Uint8 alpha) {
+    this->px(x, y, color.r, color.g, color.b, motionBlur, alpha);
 }
 
-void Canvas::px(float x, float y, Uint8 r, Uint8 g, Uint8 b, bool motionBlur) {
+void Canvas::px(float x, float y, Uint8 r, Uint8 g, Uint8 b, bool motionBlur, Uint8 alpha) {
     x = math::clamp((int)round(x), 0, _width);
     y = math::clamp((int)round(y), 0, _height);
 
+    float mix = alpha / 255.f;
+    r = r * _factor * mix;
+    g = g * _factor * mix;
+    b = b * _factor * mix;
+
     if (motionBlur) {
         Color pxCol = px(x, y);
-        setPixel(x, y, math::clamp(pxCol.r + r * _factor, 0, 255), math::clamp(pxCol.g + g * _factor, 0, 255), math::clamp(pxCol.b + b * _factor, 0, 255), _screen);
+        setPixel(x, y, math::clamp(pxCol.r + r, 0, 255), math::clamp(pxCol.g + g, 0, 255), math::clamp(pxCol.b + b, 0, 255), _screen);
     } else {
         setPixel(x, y, math::clamp(r, 0, 255), math::clamp(g, 0, 255), math::clamp(b, 0, 255), _screen);
     }

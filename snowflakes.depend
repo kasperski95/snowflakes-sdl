@@ -737,7 +737,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1545385749 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\main.cpp
+1545405879 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\main.cpp
 	<SDL/SDL.h>
 	<SDL.h>
 	<cstdlib>
@@ -747,6 +747,7 @@
 	"engine/Core.h"
 	"engine/Engine.h"
 	"engine/Objects.h"
+	"snowflakes/snowflakes.h"
 
 1255800450 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\sdl-1.2.14\include\sdl\sdl.h
 	"SDL_main.h"
@@ -1174,8 +1175,9 @@
 1545343367 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\snowflakes\objects\primitive.cpp
 	"../Objects.h"
 
-1545381139 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\math.h
+1545407438 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\math.h
 	<iostream>
+	<cmath>
 	<assert.h>
 
 1545383034 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\core\structures.h
@@ -1183,14 +1185,14 @@
 	<SDL/SDL.h>
 	<SDL.h>
 
-1545383239 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\core.h
+1545394466 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\core.h
 	<SDL/SDL.h>
 	<SDL.h>
 	<vector>
 	"Math.h"
 	"core/Structures.h"
 
-1545385271 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\objects.h
+1545399206 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\objects.h
 	<vector>
 	<cmath>
 	<assert.h>
@@ -1198,7 +1200,7 @@
 	"core/Structures.h"
 	"Core.h"
 
-1545383276 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\core\canvas.cpp
+1545395845 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\core\canvas.cpp
 	"../Core.h"
 	<cmath>
 
@@ -1213,7 +1215,7 @@
 1545383020 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\core\structures\point.cpp
 	"../Structures.h"
 
-1545334661 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\math\functions.cpp
+1545407430 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\math\functions.cpp
 	"../Math.h"
 
 1545381046 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\math\matrix.cpp
@@ -1230,13 +1232,13 @@
 1545383089 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\objects\line.cpp
 	"../Objects.h"
 
-1545385693 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\objects\primitive.cpp
+1545399429 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\objects\primitive.cpp
 	"../Objects.h"
 
 1545384535 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\objects\shape.cpp
 	"../Objects.h"
 
-1545385670 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\core\engine.cpp
+1545399367 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\core\engine.cpp
 	"../Engine.h"
 	<iostream>
 	<chrono>
@@ -1245,9 +1247,20 @@
 	"Core.h"
 	"Objects.h"
 
-1545385092 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\snowflakes\snowflake.cpp
-	"snowflakes.h"
+1545406400 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\snowflakes\snowflake.cpp
+	"Snowflakes.h"
+	"../engine/Math.h"
 
-1545385057 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\snowflakes\snowflakes.h
+1545407392 c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\snowflakes\snowflakes.h
+	"../engine/Core.h"
 	"../engine/Objects.h"
+	<vector>
+
+1545390129 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\engine\objects\circle.cpp
+	"../Objects.h"
+
+1545407703 source:c:\users\arkad\onedrive\documents\edukacja\semestr iii\grafika komputerowa i multimedia\_private\snowflakes\snowflakes\snowflakegenerator.cpp
+	"Snowflakes.h"
+	<cstdlib>
+	<ctime>
 

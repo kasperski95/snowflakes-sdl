@@ -1,8 +1,11 @@
 #pragma once
 #include <iostream>
+#include <cmath>
 #include <assert.h>
 
 namespace math {
+    const float PI = 3.14159265359;
+
     int clamp(int x, int min, int max);
 
     template <typename T>

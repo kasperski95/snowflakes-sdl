@@ -30,7 +30,7 @@ void Engine::tick() {
         }
 
         for (int i = 0; i < _primitives.size(); ++i) {
-            _primitives[i]->move(_physxDeltaTime / 1000.f);
+            _primitives[i]->move(_physxDeltaTime / 1000.f, 0, 0, _physxTimeStamp);
             _primitives[i]->draw();
         }
     }

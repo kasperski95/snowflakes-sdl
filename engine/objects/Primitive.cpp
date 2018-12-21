@@ -8,10 +8,7 @@ Primitive::Primitive(gfx::Canvas* canvasToSet, int thicknessToSet, Color borderC
 }
 
 
-void Primitive::move(float dt, Point p) { move(p.x(), p.y()); }
-void Primitive::move(float dt, float x, float y) {
-    //std::cout << dt << std::endl;
-    //location().print();
+void Primitive::move(float dt, float x, float y, unsigned long long timestamp) {
     location(location().x() + (x + _momentum.x()) * dt, location().y() + (y + _momentum.y()) * dt);
     _translate(location().x(), location().y());
 }

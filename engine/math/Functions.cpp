@@ -10,6 +10,5 @@ namespace math {
         return x;
     }
 
-
 }
 

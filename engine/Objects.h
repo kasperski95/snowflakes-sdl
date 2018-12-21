@@ -70,8 +70,7 @@ class Primitive : public Actor {
 public:
     Primitive(Canvas* canvasToSet, int thicknessToSet, Color borderColorToSet);
     virtual void draw() = 0;
-    void move(float dt, Point p);
-    void move(float dt, float x=0, float y=0);
+    virtual void move(float dt, float x=0, float y=0, unsigned long long timestamp=0);
     void momentum(float x, float y);
     Point momentum();
 
@@ -95,6 +94,15 @@ private:
     Point _endPoint;
 };
 
+
+class Circle : public Primitive {
+public:
+    Circle(gfx::Canvas* canvasToSet, int radius, int thicknessToSet, Color borderColorToSet);
+    void draw() override;
+    void fill(Color color);
+private:
+    float _radius;
+};
 
 
 class Shape : public Primitive {
