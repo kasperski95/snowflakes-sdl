@@ -15,13 +15,15 @@
 
 using namespace std;
 
+//config
 int WIDTH = 800;
 int HEIGHT = 600;
 int FPS = 30;
+int N_SNOWFLAKES = 50;
 char const* TITLE = "Snowflakes by Arkadiusz Kasprzyk";
 
 void createObjects(Engine& engine) {
-    engine.addTickingPrimitive(new SnowflakeGenerator(engine.canvas(), 50));
+    engine.addTickingPrimitive(new SnowflakeGenerator(engine.canvas(), N_SNOWFLAKES));
 }
 
 // increase wind
