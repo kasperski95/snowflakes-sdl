@@ -26,7 +26,7 @@ namespace gfx {
         int width();
         int height();
         Color px(int x, int y);
-        void px(math::Matrix m, Color color, bool motionBlur=false);
+        void px(math::Matrix<double> m, Color color, bool motionBlur=false);
         void px(Point p, Color color);
         void px(int x, int y, Color color, bool motionBlur=false);
         void px(int x, int y, Uint8 r, Uint8 g, Uint8 b, bool motionBlur=false);

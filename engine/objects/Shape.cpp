@@ -25,10 +25,6 @@ void Shape::fill(Color color) {
     _fillScanLine(color);
 }
 
-void Shape::move(Point p) { move(p.x(), p.y()); }
-void Shape::move(int x, int y) {
-    _translate(x + location().x(), y + location().y());
-}
 
 Shape::~Shape() {
     for (int i = 0; i < _lines.size(); ++i) { delete _lines[i];}

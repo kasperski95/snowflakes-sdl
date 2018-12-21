@@ -9,7 +9,7 @@
 #endif
 
 
-class Point : public math::Matrix {
+class Point : public math::Matrix<double> {
 public:
     Point(Matrix matrix);
     Point(int x=0, int y=0);

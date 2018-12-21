@@ -31,6 +31,7 @@ void Engine::tick() {
     }
 
     for (int i = 0; i < _primitives.size(); ++i) {
+        _primitives[i]->move();
         _primitives[i]->draw();
     }
 }

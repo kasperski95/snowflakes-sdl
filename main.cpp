@@ -28,6 +28,7 @@ void init(Engine& engine) {
 
     s1->motionBlur(true);
     s1->location(50, 50);
+    s1->momentum(1,1);
 
     engine.addTickingPrimitive(s1);
 }

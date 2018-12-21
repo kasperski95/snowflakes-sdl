@@ -20,8 +20,8 @@ Point Actor::location() {
 }
 
 
-math::Matrix Actor::transformationMatrix() {
-    math::Matrix tmpTransformationMatrix = _transformationMatrix;
+math::Matrix<double> Actor::transformationMatrix() {
+    math::Matrix<double> tmpTransformationMatrix = _transformationMatrix;
     if (_parent) {
         tmpTransformationMatrix = _transformationMatrix * _parent->transformationMatrix();
     }
@@ -43,7 +43,7 @@ bool Actor::motionBlur() {
 }
 
 
-void Actor::_translate(math::Matrix m) {
+void Actor::_translate(math::Matrix<double> m) {
     this->_translate(m.get(0,0), m.get(1,0));
 }
 

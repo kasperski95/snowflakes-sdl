@@ -25,7 +25,7 @@ Color Canvas::px(int x, int y) {
 }
 
 
-void Canvas::px(math::Matrix m, Color color, bool motionBlur) {
+void Canvas::px(math::Matrix<double> m, Color color, bool motionBlur) {
     this->px(m.get(0,0), m.get(1,0), color.r, color.g, color.b, motionBlur);
 }
 

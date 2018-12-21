@@ -42,23 +42,24 @@
 			<Add library="dxguid" />
 			<Add directory="SDL-1.2.14/lib" />
 		</Linker>
+		<Unit filename="engine/Core.h" />
+		<Unit filename="engine/Engine.h" />
+		<Unit filename="engine/Math.h" />
+		<Unit filename="engine/Objects.h" />
+		<Unit filename="engine/core/Canvas.cpp" />
+		<Unit filename="engine/core/Engine.cpp" />
+		<Unit filename="engine/core/Functions.cpp" />
+		<Unit filename="engine/core/Structures.h" />
+		<Unit filename="engine/core/structures/Color.cpp" />
+		<Unit filename="engine/core/structures/Point.cpp" />
+		<Unit filename="engine/math/Functions.cpp" />
+		<Unit filename="engine/math/Matrix.cpp" />
+		<Unit filename="engine/objects/Actor.cpp" />
+		<Unit filename="engine/objects/Edge.cpp" />
+		<Unit filename="engine/objects/Line.cpp" />
+		<Unit filename="engine/objects/Primitive.cpp" />
+		<Unit filename="engine/objects/Shape.cpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="snowflakes/Core.h" />
-		<Unit filename="snowflakes/Math.h" />
-		<Unit filename="snowflakes/Objects.h" />
-		<Unit filename="snowflakes/core/Canvas.cpp" />
-		<Unit filename="snowflakes/core/Engine.cpp" />
-		<Unit filename="snowflakes/core/Functions.cpp" />
-		<Unit filename="snowflakes/core/Structures.h" />
-		<Unit filename="snowflakes/core/structures/Color.cpp" />
-		<Unit filename="snowflakes/core/structures/Point.cpp" />
-		<Unit filename="snowflakes/math/Functions.cpp" />
-		<Unit filename="snowflakes/math/Matrix.cpp" />
-		<Unit filename="snowflakes/objects/Actor.cpp" />
-		<Unit filename="snowflakes/objects/Edge.cpp" />
-		<Unit filename="snowflakes/objects/Line.cpp" />
-		<Unit filename="snowflakes/objects/Primitive.cpp" />
-		<Unit filename="snowflakes/objects/Shape.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
