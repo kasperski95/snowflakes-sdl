@@ -42,16 +42,19 @@ void Canvas::px(float x, float y, Uint8 r, Uint8 g, Uint8 b, bool motionBlur, Ui
     x = math::clamp((int)round(x), 0, _width);
     y = math::clamp((int)round(y), 0, _height);
 
-    float mix = alpha / 255.f;
-    r = r * _factor * mix;
-    g = g * _factor * mix;
-    b = b * _factor * mix;
+    if (x > 0 && x < _width && y >0 && y < _height) {
+        alpha = math::clamp(alpha, 0, 255);
+        float mix = alpha / 255.f;
+        r = r * _factor * mix;
+        g = g * _factor * mix;
+        b = b * _factor * mix;
 
-    if (motionBlur) {
-        Color pxCol = px(x, y);
-        setPixel(x, y, math::clamp(pxCol.r + r, 0, 255), math::clamp(pxCol.g + g, 0, 255), math::clamp(pxCol.b + b, 0, 255), _screen);
-    } else {
-        setPixel(x, y, math::clamp(r, 0, 255), math::clamp(g, 0, 255), math::clamp(b, 0, 255), _screen);
+        if (motionBlur) {
+            Color pxCol = px(x, y);
+            setPixel(x, y, math::clamp(pxCol.r + r, 0, 255), math::clamp(pxCol.g + g, 0, 255), math::clamp(pxCol.b + b, 0, 255), _screen);
+        } else {
+            setPixel(x, y, math::clamp(r, 0, 255), math::clamp(g, 0, 255), math::clamp(b, 0, 255), _screen);
+        }
     }
 }
 

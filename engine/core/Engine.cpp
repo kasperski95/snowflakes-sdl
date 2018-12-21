@@ -8,6 +8,7 @@ Engine::Engine(SDL_Surface* screenToSet, int widthToSet, int heightToSet, int fp
     SDL_ShowCursor(SDL_DISABLE);
     SDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, -1);
 
+    _wind = 0;
     _fps = fpsToSet;
     _exposureTime = 1000.f / _fps;
 
@@ -30,15 +31,21 @@ void Engine::tick() {
         }
 
         for (int i = 0; i < _primitives.size(); ++i) {
-            _primitives[i]->move(_physxDeltaTime / 1000.f, 0, 0, _physxTimeStamp);
+            _primitives[i]->move(_physxDeltaTime / 1000.f, _wind, 0, _physxTimeStamp);
             _primitives[i]->draw();
         }
     }
 }
 
-Canvas* Engine::canvas() {return _canvas;}
+
+void Engine::wind(float windToAdd) {
+    _wind = math::clamp(_wind + windToAdd, -250, 250);
+}
 
 
 void Engine::addTickingPrimitive(Primitive* primitive) {
     _primitives.push_back(primitive);
 }
+
+
+Canvas* Engine::canvas() {return _canvas;}

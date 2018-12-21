@@ -9,12 +9,14 @@ namespace gfx {
     class Engine {
     public:
         Engine(SDL_Surface* screen, int width, int height, int fps);
-        Canvas* canvas();
         void tick();
         void addTickingPrimitive(Primitive* primitive);
+        void wind(float wind);
+        Canvas* canvas();
     private:
         std::vector<Primitive*> _primitives;
         int _fps;
+        float _wind;
         Canvas* _canvas;
         double _exposureTime;
         unsigned long long _physxDeltaTime;

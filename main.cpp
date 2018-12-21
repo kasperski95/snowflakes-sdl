@@ -21,20 +21,19 @@ int FPS = 30;
 char const* TITLE = "Snowflakes by Arkadiusz Kasprzyk";
 
 void createObjects(Engine& engine) {
-    engine.addTickingPrimitive(new SnowflakeGenerator(engine.canvas(), 20));
+    engine.addTickingPrimitive(new SnowflakeGenerator(engine.canvas(), 50));
 }
 
 // increase wind
-void Funkcja1() {}
+void Funkcja1(Engine& engine) {
+    engine.wind(-25);
+}
 
 // decrease wind
-void Funkcja2() {}
+void Funkcja2(Engine& engine) {
+    engine.wind(25);
+}
 
-// more snow
-void Funkcja3() {}
-
-// less snow
-void Funkcja4() {}
 
 
 int main ( int argc, char** argv ) {
@@ -86,14 +85,10 @@ int main ( int argc, char** argv ) {
                         if (event.key.keysym.sym == SDLK_ESCAPE)
                             done = true;
                         if (event.key.keysym.sym == SDLK_1)
-                            Funkcja1();
+                            Funkcja1(engine);
                         if (event.key.keysym.sym == SDLK_2)
-                            Funkcja2();
-                        if (event.key.keysym.sym == SDLK_3)
-                            Funkcja3();
-                        if (event.key.keysym.sym == SDLK_4)
-                            Funkcja4();
-                        }
+                            Funkcja2(engine);
+                    }
                 }
             }
         }
@@ -101,7 +96,7 @@ int main ( int argc, char** argv ) {
         printf("Exited cleanly\n");
         return 0;
     } catch(const std::exception& e) {
-        std::cout << e.what() << endl;
+        std::cout << e.what() << std::endl;
     }
     return 1;
 }

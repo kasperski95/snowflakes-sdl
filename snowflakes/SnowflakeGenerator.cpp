@@ -7,25 +7,26 @@ SnowflakeGenerator::SnowflakeGenerator(gfx::Canvas* canvasToSet, int nSnowflakes
     _snowflakes(nSnowflakes)
 {
     srand(time(0));
-
     {
         int x, y;
         for (int i = 0; i < nSnowflakes; ++i) {
-            x = rand() % (int)(canvasToSet->width() * 1.5);
-            y = (rand() % ((int)canvasToSet->height())) - canvasToSet->height();
-            _snowflakes[i] = new Snowflake(canvasToSet, 1.f);
+            x = (rand() % (int)(canvasToSet->width() * 3)) - canvasToSet->width();
+            y = (rand() % (int)(canvasToSet->height() * 1.5)) - canvasToSet->height();
+            _snowflakes[i] = new Snowflake(canvasToSet, 1.f, (rand()%100)/100.f, rand() % 1000);
             _snowflakes[i]->location(x, y);
         }
     }
 }
 
 void SnowflakeGenerator::draw() {
-
+    int x;
     for (int i = 0; i< _snowflakes.size(); ++i) {
         _snowflakes[i]->draw();
 
-        if (_snowflakes[i]->location().y() > _canvas->height())
-            _snowflakes[i]->location().y(-30);
+        if (_snowflakes[i]->location().y() > _canvas->height()) {
+            x = (rand() % (int)(_canvas->width() * 3)) - _canvas->width();
+            _snowflakes[i]->location(x, -8);
+        }
     }
 }
 
