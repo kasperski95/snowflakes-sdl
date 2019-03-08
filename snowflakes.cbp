@@ -55,11 +55,15 @@
 		<Unit filename="engine/math/Functions.cpp" />
 		<Unit filename="engine/math/Matrix.cpp" />
 		<Unit filename="engine/objects/Actor.cpp" />
+		<Unit filename="engine/objects/Circle.cpp" />
 		<Unit filename="engine/objects/Edge.cpp" />
 		<Unit filename="engine/objects/Line.cpp" />
 		<Unit filename="engine/objects/Primitive.cpp" />
 		<Unit filename="engine/objects/Shape.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="snowflakes/Snowflake.cpp" />
+		<Unit filename="snowflakes/SnowflakeGenerator.cpp" />
+		<Unit filename="snowflakes/Snowflakes.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
